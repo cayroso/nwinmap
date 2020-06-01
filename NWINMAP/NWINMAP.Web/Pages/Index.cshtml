@@ -1,0 +1,13 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+
+    var userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+
+    var urlEdit = Url.Page("/Administrator/AddEditItem");
+}
+
+<app-index uid="@userId"
+           url-edit="@urlEdit">
+</app-index>

@@ -1,0 +1,19 @@
+﻿@page "{id?}"
+@model NWINMAP.Web.AddEditItemModel
+@{
+    var title = "Add Device Item";
+
+    if (!string.IsNullOrWhiteSpace(Model.Id))
+    {
+        title = "Edit Device Item";
+    }
+
+    ViewData["Title"] = title;
+
+    var durl = Url.Page("/Index");
+    var rurl = "";
+}
+
+<administrator-add-edit-item id="@Model.Id" durl="@durl" rurl="@rurl">
+
+</administrator-add-edit-item>

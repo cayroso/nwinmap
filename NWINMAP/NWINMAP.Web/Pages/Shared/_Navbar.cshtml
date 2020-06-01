@@ -1,0 +1,62 @@
+﻿@{
+    var userId = User.Identity.Name;
+}
+<navbar inline-template>
+    <b-navbar toggleable="md" type="dark" variant="primary" class="py-md-2">
+        <div class="container-lg">
+            <a asp-page="/Index" class="navbar-brand">Network Infra Mapper</a>
+
+            @*<b-navbar-toggle target="navDrawer"></b-navbar-toggle>*@
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/Administrator/AddEditItem">
+                                <span class="fas fa-fw fa-plus mr-1"></span>
+                                <span class="d-md-inline">Add Device</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            }
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="nav-item dropdown ml-auto">
+                    <a class="nav-link text-white dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="mr-2">@userId</span><span class="fas fa-fw fa-user-circle mr-1"></span>
+                    </a>
+                    <!-- Dropdown - User Information -->
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                        <a asp-area="Identity" asp-page="/Account/Manage/Index" class="dropdown-item">
+                            <i class="fas fa-user fa-sm fa-fw mr-2"></i>
+                            Account
+                        </a>
+
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 "></i>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">
+                            <span class="fas fa-fw fa-sign-in-alt mr-1"></span>
+                            <span class="d-none d-md-inline">Login</span>
+                        </a>
+                    </li>
+                </ul>
+            }
+
+
+
+        </div>
+    </b-navbar>
+</navbar>

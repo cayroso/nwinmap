@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="/" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - NWINMAP.Web</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/solid.min.css" />
+
+    <link rel="stylesheet" href="~/app/vendor-bundle.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/app/app.css" asp-append-version="true" />
+
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />*@
+
+    <!---
+        lumen
+        sketchy
+        spacelab
+        superhero
+        yeti
+        cerulean
+        darky
+        materia
+        sandstone
+        slate
+
+        cosmo
+
+
+        minty
+        simplex
+        solar
+        journal
+        lux
+        pulse
+
+        -->
+    <link rel="stylesheet" href="https://bootswatch.com/4/superhero/bootstrap.css" />
+</head>
+<body id="top" class="pb-3 pb-sm-0">
+    <div id="app">
+        <app inline-template>
+            <div>
+                <partial name="_Navbar.cshtml" />
+
+                <main class="container-lg py-3 mb-5 mb-sm-0" v-cloak>
+                    @RenderBody()
+                </main>
+
+                @*<partial name="_NavbarAlt.cshtml" />*@
+            </div>
+        </app>
+    </div>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <form id="formLogout" action="~/Identity/Account/Logout" method="post">
+                        <a href="javascript:document.getElementById('formLogout').submit()" class="btn btn-primary">
+                            <span>Logout</span>
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfucoZC5t-bH-q38_l6qn2XeP25Kr_1vw"></script>
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>*@
+
+    <script src="~/app/vendor-bundle.js" asp-append-version="true"></script>
+    <script src="~/app/app.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

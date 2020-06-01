@@ -1,0 +1,48 @@
+﻿@{ 
+    var userId = User.Identity.Name;
+}
+<navbar inline-template>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-bottom d-inline-flex d-sm-none">
+        <ul class="navbar-nav row no-gutters">
+            @*<li class="nav-item col">
+                <a class="nav-link" asp-page="/Store/Owner/Orders/Index">
+                    <span class="fas fa-fw fa-cubes"></span>
+                </a>
+            </li>
+            <li class="nav-item col">
+                <a class="nav-link" asp-page="/Store/Owner/Customers/Index">
+                    <span class="fas fa-fw fa-users "></span>
+                </a>
+            </li>
+            <li class="nav-item col">
+                <a class="nav-link" asp-page="/Store/Owner/Products/Index">
+                    <span class="fas fa-fw fa-shopping-cart mr-1"></span>
+                </a>
+            </li>
+            <li class="nav-item col">
+                <a class="nav-link" asp-page="/Store/Owner/Bottles/Index">
+                    <span class="fas fa-fw fa-tags mr-1"></span>
+                    <span class="d-none d-md-inline">Bottles</span>
+                </a>
+            </li>
+            <li class="nav-item col">
+                <a class="nav-link" asp-page="/Store/Owner/Settings/Index">
+                    <span class="fas fa-fw fa-cogs mr-1"></span>
+                    <span class="d-none d-md-inline">Settings</span>
+                </a>
+            </li>*@
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-page="/Administrator/AddEditItem">
+                        <span class="fas fa-fw fa-cubes mr-1"></span>
+                        <span class="d-none d-md-inline">Add Device</span>
+                    </a>
+                </li>
+
+            }
+        </ul>
+
+    </nav>
+</navbar>

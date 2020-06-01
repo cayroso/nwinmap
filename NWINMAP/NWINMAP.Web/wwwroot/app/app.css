@@ -1,0 +1,25 @@
+/*@import '~@fortawesome/fontawesome-free/css/fontawesome.css';
+@import '~@fortawesome/fontawesome-free/css/solid.css';*/
+/*@import '~startbootstrap-sb-admin-2/css/sb-admin-2.css';*/
+
+[v-cloak] > * {
+    display: none;
+}
+
+[v-cloak]::before {
+    content: "Loading, please wait.";
+    color: black;
+}
+
+.bg-purple {
+    background-color: #6f42c1;
+}
+
+.bg-page {
+    background-color: #adb0c5 !important;
+}
+
+.border-warning {
+    border: 0.125rem solid #dcc942 !important;
+}
+
