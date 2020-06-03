@@ -9,8 +9,8 @@ using NWINMAP.Web.Data;
 namespace NWINMAP.Web.Migrations
 {
     [DbContext(typeof(IdentityWebContext))]
-    [Migration("20200601040221_identity")]
-    partial class identity
+    [Migration("20200603135641_app")]
+    partial class app
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -47,14 +47,14 @@ namespace NWINMAP.Web.Migrations
                         new
                         {
                             Id = "systemadministrator",
-                            ConcurrencyStamp = "e30fe687-debd-4159-aa76-da3e6013e065",
+                            ConcurrencyStamp = "c5c256cd-5740-41b4-99df-be2d3195c2cd",
                             Name = "SystemAdministrator",
                             NormalizedName = "SYSTEMADMINISTRATOR"
                         },
                         new
                         {
                             Id = "administrator",
-                            ConcurrencyStamp = "f921b063-e23c-4c5e-a21f-e6882b7314b2",
+                            ConcurrencyStamp = "bde66b63-5161-4aa9-b67c-0b9cb2f3f899",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
@@ -208,42 +208,74 @@ namespace NWINMAP.Web.Migrations
                         new
                         {
                             BarangayId = "Barangay1",
-                            Description = "Barangay Number 1",
+                            Description = "muzon",
                             Latitude = 13.842046,
                             Longitude = 120.943854,
-                            Name = "Barangay #1"
+                            Name = "Muzon"
                         },
                         new
                         {
                             BarangayId = "Barangay2",
-                            Description = "Barangay Number 2",
+                            Description = "poblacion",
                             Latitude = 13.842046,
                             Longitude = 120.943854,
-                            Name = "Barangay #2"
+                            Name = "Poblacion"
                         },
                         new
                         {
                             BarangayId = "Barangay3",
-                            Description = "Barangay Number 3",
+                            Description = "calumpang east",
                             Latitude = 13.842046,
                             Longitude = 120.943854,
-                            Name = "Barangay #3"
+                            Name = "Calumpang East"
                         },
                         new
                         {
                             BarangayId = "Barangay4",
-                            Description = "Barangay Number 4",
+                            Description = "calumpang west",
                             Latitude = 13.842046,
                             Longitude = 120.943854,
-                            Name = "Barangay #4"
+                            Name = "Calumpang West"
                         },
                         new
                         {
                             BarangayId = "Barangay5",
-                            Description = "Barangay Number 5",
+                            Description = "taliba",
                             Latitude = 13.842046,
                             Longitude = 120.943854,
-                            Name = "Barangay #5"
+                            Name = "Taliba"
+                        },
+                        new
+                        {
+                            BarangayId = "Barangay6",
+                            Description = "tunggal",
+                            Latitude = 13.842046,
+                            Longitude = 120.943854,
+                            Name = "Tunggal"
+                        },
+                        new
+                        {
+                            BarangayId = "Barangay7",
+                            Description = "tejero",
+                            Latitude = 13.842046,
+                            Longitude = 120.943854,
+                            Name = "Tejero"
+                        },
+                        new
+                        {
+                            BarangayId = "Barangay8",
+                            Description = "bagong tubig",
+                            Latitude = 13.842046,
+                            Longitude = 120.943854,
+                            Name = "Bagong Tubig"
+                        },
+                        new
+                        {
+                            BarangayId = "Barangay9",
+                            Description = "Banoyo",
+                            Latitude = 13.842046,
+                            Longitude = 120.943854,
+                            Name = "Banoyo"
                         });
                 });
 
@@ -330,7 +362,7 @@ namespace NWINMAP.Web.Migrations
                             ItemId = "Barangay1Item1",
                             Address = "Address 1",
                             BarangayId = "Barangay1",
-                            ConcurrencyStamp = "222721fb-8202-4aff-8875-ab7ec4215d44",
+                            ConcurrencyStamp = "2bdc680c-b18a-4046-96a6-42e0a5d59a0e",
                             Description = "Barangay Number 1 Item Number 1",
                             ItemStatus = -1,
                             ItemType = 1,
@@ -344,7 +376,7 @@ namespace NWINMAP.Web.Migrations
                             ItemId = "Barangay1Item2",
                             Address = "Address 2",
                             BarangayId = "Barangay1",
-                            ConcurrencyStamp = "c24c79ac-c9fd-40b8-8511-22322f48ac88",
+                            ConcurrencyStamp = "07c75338-b03e-4232-b467-7c410bee427d",
                             Description = "Barangay Number 1 Item Number 2",
                             ItemStatus = 1,
                             ItemType = 2,
@@ -358,7 +390,7 @@ namespace NWINMAP.Web.Migrations
                             ItemId = "Barangay1Item3",
                             Address = "Address 3",
                             BarangayId = "Barangay1",
-                            ConcurrencyStamp = "3f44c226-a938-4fed-ab10-6f7e273376c1",
+                            ConcurrencyStamp = "a8180c35-4e4f-4868-b734-49230c8de4fa",
                             Description = "Barangay Number 1 Item Number 3",
                             ItemStatus = 0,
                             ItemType = 1,
@@ -372,7 +404,7 @@ namespace NWINMAP.Web.Migrations
                             ItemId = "Barangay2Item4",
                             Address = "Address 4",
                             BarangayId = "Barangay2",
-                            ConcurrencyStamp = "b293a45a-4698-4771-b2c9-7edfdf9d9bd1",
+                            ConcurrencyStamp = "9ceb0020-eb19-4321-9100-e31ed3502bde",
                             Description = "Barangay Number 2 Item Number 4",
                             ItemStatus = 1,
                             ItemType = 1,

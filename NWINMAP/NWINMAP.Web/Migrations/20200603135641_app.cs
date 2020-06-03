@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace NWINMAP.Web.Migrations
 {
-    public partial class identity : Migration
+    public partial class app : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -240,12 +240,12 @@ namespace NWINMAP.Web.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "systemadministrator", "e30fe687-debd-4159-aa76-da3e6013e065", "SystemAdministrator", "SYSTEMADMINISTRATOR" });
+                values: new object[] { "systemadministrator", "c5c256cd-5740-41b4-99df-be2d3195c2cd", "SystemAdministrator", "SYSTEMADMINISTRATOR" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "administrator", "f921b063-e23c-4c5e-a21f-e6882b7314b2", "Administrator", "ADMINISTRATOR" });
+                values: new object[] { "administrator", "bde66b63-5161-4aa9-b67c-0b9cb2f3f899", "Administrator", "ADMINISTRATOR" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
@@ -260,27 +260,47 @@ namespace NWINMAP.Web.Migrations
             migrationBuilder.InsertData(
                 table: "Barangay",
                 columns: new[] { "BarangayId", "ConcurrencyStamp", "Description", "Latitude", "Longitude", "Name" },
-                values: new object[] { "Barangay1", null, "Barangay Number 1", 13.842046, 120.943854, "Barangay #1" });
+                values: new object[] { "Barangay1", null, "muzon", 13.842046, 120.943854, "Muzon" });
 
             migrationBuilder.InsertData(
                 table: "Barangay",
                 columns: new[] { "BarangayId", "ConcurrencyStamp", "Description", "Latitude", "Longitude", "Name" },
-                values: new object[] { "Barangay2", null, "Barangay Number 2", 13.842046, 120.943854, "Barangay #2" });
+                values: new object[] { "Barangay2", null, "poblacion", 13.842046, 120.943854, "Poblacion" });
 
             migrationBuilder.InsertData(
                 table: "Barangay",
                 columns: new[] { "BarangayId", "ConcurrencyStamp", "Description", "Latitude", "Longitude", "Name" },
-                values: new object[] { "Barangay3", null, "Barangay Number 3", 13.842046, 120.943854, "Barangay #3" });
+                values: new object[] { "Barangay3", null, "calumpang east", 13.842046, 120.943854, "Calumpang East" });
 
             migrationBuilder.InsertData(
                 table: "Barangay",
                 columns: new[] { "BarangayId", "ConcurrencyStamp", "Description", "Latitude", "Longitude", "Name" },
-                values: new object[] { "Barangay4", null, "Barangay Number 4", 13.842046, 120.943854, "Barangay #4" });
+                values: new object[] { "Barangay4", null, "calumpang west", 13.842046, 120.943854, "Calumpang West" });
 
             migrationBuilder.InsertData(
                 table: "Barangay",
                 columns: new[] { "BarangayId", "ConcurrencyStamp", "Description", "Latitude", "Longitude", "Name" },
-                values: new object[] { "Barangay5", null, "Barangay Number 5", 13.842046, 120.943854, "Barangay #5" });
+                values: new object[] { "Barangay5", null, "taliba", 13.842046, 120.943854, "Taliba" });
+
+            migrationBuilder.InsertData(
+                table: "Barangay",
+                columns: new[] { "BarangayId", "ConcurrencyStamp", "Description", "Latitude", "Longitude", "Name" },
+                values: new object[] { "Barangay6", null, "tunggal", 13.842046, 120.943854, "Tunggal" });
+
+            migrationBuilder.InsertData(
+                table: "Barangay",
+                columns: new[] { "BarangayId", "ConcurrencyStamp", "Description", "Latitude", "Longitude", "Name" },
+                values: new object[] { "Barangay7", null, "tejero", 13.842046, 120.943854, "Tejero" });
+
+            migrationBuilder.InsertData(
+                table: "Barangay",
+                columns: new[] { "BarangayId", "ConcurrencyStamp", "Description", "Latitude", "Longitude", "Name" },
+                values: new object[] { "Barangay8", null, "bagong tubig", 13.842046, 120.943854, "Bagong Tubig" });
+
+            migrationBuilder.InsertData(
+                table: "Barangay",
+                columns: new[] { "BarangayId", "ConcurrencyStamp", "Description", "Latitude", "Longitude", "Name" },
+                values: new object[] { "Barangay9", null, "Banoyo", 13.842046, 120.943854, "Banoyo" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
@@ -295,22 +315,22 @@ namespace NWINMAP.Web.Migrations
             migrationBuilder.InsertData(
                 table: "Item",
                 columns: new[] { "ItemId", "Address", "BarangayId", "ConcurrencyStamp", "Description", "Image", "ItemStatus", "ItemType", "Latitude", "Longitude", "Name", "Source", "UserId" },
-                values: new object[] { "Barangay1Item1", "Address 1", "Barangay1", "222721fb-8202-4aff-8875-ab7ec4215d44", "Barangay Number 1 Item Number 1", null, -1, 1, 13.842146, 120.92385400000001, "Barangay #1 Item #1", null, "systemadministrator1" });
+                values: new object[] { "Barangay1Item1", "Address 1", "Barangay1", "2bdc680c-b18a-4046-96a6-42e0a5d59a0e", "Barangay Number 1 Item Number 1", null, -1, 1, 13.842146, 120.92385400000001, "Barangay #1 Item #1", null, "systemadministrator1" });
 
             migrationBuilder.InsertData(
                 table: "Item",
                 columns: new[] { "ItemId", "Address", "BarangayId", "ConcurrencyStamp", "Description", "Image", "ItemStatus", "ItemType", "Latitude", "Longitude", "Name", "Source", "UserId" },
-                values: new object[] { "Barangay1Item2", "Address 2", "Barangay1", "c24c79ac-c9fd-40b8-8511-22322f48ac88", "Barangay Number 1 Item Number 2", null, 1, 2, 13.812346, 120.943854, "Barangay #1 Item #2", null, "systemadministrator1" });
+                values: new object[] { "Barangay1Item2", "Address 2", "Barangay1", "07c75338-b03e-4232-b467-7c410bee427d", "Barangay Number 1 Item Number 2", null, 1, 2, 13.812346, 120.943854, "Barangay #1 Item #2", null, "systemadministrator1" });
 
             migrationBuilder.InsertData(
                 table: "Item",
                 columns: new[] { "ItemId", "Address", "BarangayId", "ConcurrencyStamp", "Description", "Image", "ItemStatus", "ItemType", "Latitude", "Longitude", "Name", "Source", "UserId" },
-                values: new object[] { "Barangay1Item3", "Address 3", "Barangay1", "3f44c226-a938-4fed-ab10-6f7e273376c1", "Barangay Number 1 Item Number 3", null, 0, 1, 13.862546, 120.943854, "Barangay #1 Item #3", null, "systemadministrator2" });
+                values: new object[] { "Barangay1Item3", "Address 3", "Barangay1", "a8180c35-4e4f-4868-b734-49230c8de4fa", "Barangay Number 1 Item Number 3", null, 0, 1, 13.862546, 120.943854, "Barangay #1 Item #3", null, "systemadministrator2" });
 
             migrationBuilder.InsertData(
                 table: "Item",
                 columns: new[] { "ItemId", "Address", "BarangayId", "ConcurrencyStamp", "Description", "Image", "ItemStatus", "ItemType", "Latitude", "Longitude", "Name", "Source", "UserId" },
-                values: new object[] { "Barangay2Item4", "Address 4", "Barangay2", "b293a45a-4698-4771-b2c9-7edfdf9d9bd1", "Barangay Number 2 Item Number 4", null, 1, 1, 13.862546, 120.963854, "Barangay #2 Item #4", null, "systemadministrator2" });
+                values: new object[] { "Barangay2Item4", "Address 4", "Barangay2", "9ceb0020-eb19-4321-9100-e31ed3502bde", "Barangay Number 2 Item Number 4", null, 1, 1, 13.862546, 120.963854, "Barangay #2 Item #4", null, "systemadministrator2" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

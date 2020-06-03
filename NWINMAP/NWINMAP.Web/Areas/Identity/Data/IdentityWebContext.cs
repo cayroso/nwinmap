@@ -159,49 +159,87 @@ namespace NWINMAP.Web.Data
                     RoleId = sysAdminAppRole.Id
                 });
 
+            //muzon, poblacion, calumpang east, calumpang west, taliba, tunggal, tejero, bagong tubig, banoyo
+
+
+
+
             //  Barangays
             //  13.842046, 120.943854
             builder.Entity<Barangay>().HasData(
                 new Barangay
                 {
                     BarangayId = "Barangay1",
-                    Name = "Barangay #1",
-                    Description = "Barangay Number 1",
+                    Name = "Muzon",
+                    Description = "muzon",
                     Latitude = 13.842046,
                     Longitude = 120.943854
                 },
                 new Barangay
                 {
                     BarangayId = "Barangay2",
-                    Name = "Barangay #2",
-                    Description = "Barangay Number 2",
+                    Name = "Poblacion",
+                    Description = "poblacion",
                     Latitude = 13.842046,
                     Longitude = 120.943854
                 },
                 new Barangay
                 {
                     BarangayId = "Barangay3",
-                    Name = "Barangay #3",
-                    Description = "Barangay Number 3",
+                    Name = "Calumpang East",
+                    Description = "calumpang east",
                     Latitude = 13.842046,
                     Longitude = 120.943854
                 },
                 new Barangay
                 {
                     BarangayId = "Barangay4",
-                    Name = "Barangay #4",
-                    Description = "Barangay Number 4",
+                    Name = "Calumpang West",
+                    Description = "calumpang west",
                     Latitude = 13.842046,
                     Longitude = 120.943854
                 },
                 new Barangay
                 {
                     BarangayId = "Barangay5",
-                    Name = "Barangay #5",
-                    Description = "Barangay Number 5",
+                    Name = "Taliba",
+                    Description = "taliba",
                     Latitude = 13.842046,
                     Longitude = 120.943854
-                });
+                },
+                new Barangay
+                {
+                    BarangayId = "Barangay6",
+                    Name = "Tunggal",
+                    Description = "tunggal",
+                    Latitude = 13.842046,
+                    Longitude = 120.943854
+                },
+                new Barangay
+                {
+                    BarangayId = "Barangay7",
+                    Name = "Tejero",
+                    Description = "tejero",
+                    Latitude = 13.842046,
+                    Longitude = 120.943854
+                },
+                new Barangay
+                {
+                    BarangayId = "Barangay8",
+                    Name = "Bagong Tubig",
+                    Description = "bagong tubig",
+                    Latitude = 13.842046,
+                    Longitude = 120.943854
+                },
+                new Barangay
+                {
+                    BarangayId = "Barangay9",
+                    Name = "Banoyo",
+                    Description = "Banoyo",
+                    Latitude = 13.842046,
+                    Longitude = 120.943854
+                }
+                );
 
             builder.Entity<Item>().HasData(
                 new Item
