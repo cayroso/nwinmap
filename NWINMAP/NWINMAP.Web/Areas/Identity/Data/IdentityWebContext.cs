@@ -13,6 +13,10 @@ namespace NWINMAP.Web.Data
 {
     public class IdentityWebContext : IdentityDbContext<IdentityWebUser>
     {
+        const int KeyMaxLength = 36;
+        const int NameMaxLength = 256;
+        const int DescMaxLength = 2048;
+
         public DbSet<Barangay> Barangays { get; set; }
         public DbSet<Item> Items { get; set; }
 
@@ -21,6 +25,7 @@ namespace NWINMAP.Web.Data
         {
         }
 
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -28,7 +33,52 @@ namespace NWINMAP.Web.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
 
+            OnModelCreatingIdentity(builder);
 
+            OnModelCreatingApp(builder);
+
+            builder.Seed();
+        }
+
+        void OnModelCreatingIdentity(ModelBuilder builder)
+        {
+            builder.Entity<IdentityWebUser>(b =>
+            {
+                b.ToTable("User");
+                b.HasKey(e => e.Id);
+
+                b.Property(q => q.Id).HasColumnName("UserId").HasMaxLength(KeyMaxLength).IsRequired();
+                b.Property(e => e.UserName).HasMaxLength(NameMaxLength).IsRequired();
+                b.HasIndex(e => e.UserName).IsUnique();
+
+                b.Property(e => e.Email).HasMaxLength(NameMaxLength).IsRequired();
+                b.HasIndex(e => e.Email).IsUnique();
+
+                b.Property(e => e.FirstName).HasMaxLength(NameMaxLength).IsRequired();
+                b.Property(e => e.LastName).HasMaxLength(NameMaxLength).IsRequired();
+
+            });
+
+            //builder.Entity<IdentityRole<string>>(b =>
+            //{
+            //    b.ToTable("Role");
+            //    b.HasKey(e => e.Id);
+
+            //    b.Property(e => e.Id).HasColumnName("RoleId").HasMaxLength(KeyMaxLength);
+            //    b.Property(e => e.Name).HasMaxLength(NameMaxLength).IsRequired();
+            //    b.HasIndex(e => e.Name).IsUnique();
+            //});
+
+            builder.Entity<IdentityRole>().ToTable("Role");
+            builder.Entity<IdentityUserRole<string>>().ToTable("UserRole");
+            builder.Entity<IdentityRoleClaim<string>>().ToTable("RoleClaim");
+            builder.Entity<IdentityUserClaim<string>>().ToTable("UserClaim");
+            builder.Entity<IdentityUserLogin<string>>().ToTable("UserLogin");
+            builder.Entity<IdentityUserToken<string>>().ToTable("UserToken");
+        }
+
+        void OnModelCreatingApp(ModelBuilder builder)
+        {
             builder.Entity<Barangay>(b =>
             {
                 b.ToTable("Barangay");
@@ -73,9 +123,6 @@ namespace NWINMAP.Web.Data
 
                 b.Property(e => e.ConcurrencyStamp).IsConcurrencyToken();
             });
-
-
-            builder.Seed();
         }
     }
 
@@ -84,21 +131,21 @@ namespace NWINMAP.Web.Data
         public static void Seed(this ModelBuilder builder)
         {
 
-            var sysAdminAppRole = ApplicationRoles.SystemAdministrator;
-            var adminAppRole = ApplicationRoles.Administrator;
+            var admin = ApplicationRoles.Administrator;
+            var user = ApplicationRoles.User;
 
             builder.Entity<IdentityRole>().HasData(
                 new IdentityRole
                 {
-                    Id = sysAdminAppRole.Id,
-                    Name = sysAdminAppRole.Name,
-                    NormalizedName = sysAdminAppRole.Name.ToUpper()
+                    Id = admin.Id,
+                    Name = admin.Name,
+                    NormalizedName = admin.Name.ToUpper()
                 },
                 new IdentityRole
                 {
-                    Id = adminAppRole.Id,
-                    Name = adminAppRole.Name,
-                    NormalizedName = adminAppRole.Name.ToUpper()
+                    Id = user.Id,
+                    Name = user.Name,
+                    NormalizedName = user.Name.ToUpper()
                 });
 
             builder.Entity<IdentityWebUser>().HasData(
@@ -106,8 +153,8 @@ namespace NWINMAP.Web.Data
                 {
                     Id = "systemadministrator1",
                     UserName = "systemadministrator1@web.com",
-                    FirstName = "SysAdmin1 FirstName",
-                    LastName = "SysAdmin1 LastName",
+                    FirstName = "Kristine",
+                    LastName = "Pilac",
                     NormalizedUserName = "SYSTEMADMINISTRATOR1@WEB.COM",
 
                     Email = "systemadministrator1@web.com",
@@ -128,12 +175,34 @@ namespace NWINMAP.Web.Data
                 {
                     Id = "systemadministrator2",
                     UserName = "systemadministrator2@web.com",
-                    FirstName = "SysAdmin2 FirstName",
-                    LastName = "SysAdmin2 LastName",
+                    FirstName = "Jovie Anne",
+                    LastName = "Adajar",
                     NormalizedUserName = "SYSTEMADMINISTRATOR2@WEB.COM",
 
                     Email = "systemadministrator2@web.com",
                     NormalizedEmail = "SYSTEMADMINISTRATOR2@WEB.COM",
+                    EmailConfirmed = true,
+                    PhoneNumber = "09876543212",
+                    PhoneNumberConfirmed = true,
+
+                    LockoutEnabled = false,
+                    LockoutEnd = null,
+                    PasswordHash = "AQAAAAEAACcQAAAAEKGIieH17t5bYXa5tUfxRwN9UIEwApTKbQBRaUtIHplIUG2OfYxvBS8uvKy5E2Stsg==",
+                    SecurityStamp = "6SADCY3NMMLOHA2S26ZJCEWGHWSQUYRM",
+                    TwoFactorEnabled = false,
+                    AccessFailedCount = 0,
+                    ConcurrencyStamp = "7af7285e-ba87-4f2b-b729-14e5b74bb8a1",
+                },
+                new IdentityWebUser
+                {
+                    Id = "systemadministrator3",
+                    UserName = "systemadministrator3@web.com",
+                    FirstName = "Nikko",
+                    LastName = "Palamarez",
+                    NormalizedUserName = "SYSTEMADMINISTRATOR3@WEB.COM",
+
+                    Email = "systemadministrator3@web.com",
+                    NormalizedEmail = "SYSTEMADMINISTRATOR3@WEB.COM",
                     EmailConfirmed = true,
                     PhoneNumber = "09876543212",
                     PhoneNumberConfirmed = true,
@@ -151,18 +220,20 @@ namespace NWINMAP.Web.Data
                 new IdentityUserRole<string>
                 {
                     UserId = "systemadministrator1",
-                    RoleId = sysAdminAppRole.Id
+                    RoleId = admin.Id,
                 },
                 new IdentityUserRole<string>
                 {
                     UserId = "systemadministrator2",
-                    RoleId = sysAdminAppRole.Id
+                    RoleId = admin.Id
+                },
+                new IdentityUserRole<string>
+                {
+                    UserId = "systemadministrator3",
+                    RoleId = admin.Id
                 });
 
             //muzon, poblacion, calumpang east, calumpang west, taliba, tunggal, tejero, bagong tubig, banoyo
-
-
-
 
             //  Barangays
             //  13.842046, 120.943854

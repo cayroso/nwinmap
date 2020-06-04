@@ -16,11 +16,11 @@ namespace NWINMAP.Web.Areas.Identity.Constants
         public string Id { get; }
         public string Name { get; }
 
-        public const string SystemAdministratorRoleName = "SystemAdministrator";
-        public static ApplicationRoles SystemAdministrator = new ApplicationRoles(SystemAdministratorRoleName.ToLower(), SystemAdministratorRoleName);
-
         public const string AdministratorRoleName = "Administrator";
         public static ApplicationRoles Administrator = new ApplicationRoles(AdministratorRoleName.ToLower(), AdministratorRoleName);
+
+        public const string UserRoleName = "User";
+        public static ApplicationRoles User = new ApplicationRoles(UserRoleName.ToLower(), UserRoleName);
 
         //public const string OfficerRoleName = "Officer";
         //public static ApplicationRoles Officer = new ApplicationRoles(OfficerRoleName.ToLower(), OfficerRoleName);
@@ -34,7 +34,7 @@ namespace NWINMAP.Web.Areas.Identity.Constants
             {
                 var items = new List<ApplicationRoles>
                 {
-                    SystemAdministrator, Administrator//, Officer, Resident
+                    Administrator, User
                 };
 
                 return items;
