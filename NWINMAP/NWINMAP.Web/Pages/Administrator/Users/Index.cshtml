@@ -1,0 +1,13 @@
+﻿@page
+@model NWINMAP.Web.Pages.Administrator.Users.IndexModel
+@{
+    ViewBag.Title = "Users";
+
+    var uid = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+    var durl = Url.Page("Index");
+
+}
+
+<administrator-users-index uid="@uid"
+                           durl="@durl">
+</administrator-users-index>

@@ -4,8 +4,9 @@
 <navbar inline-template>
     <b-navbar toggleable="md" type="dark" variant="primary" class="py-md-2">
         <div class="container-lg">
-            <a asp-page="/Index" class="navbar-brand">
-                Network Administrator Online Monitor for Connectivity Status
+            <a asp-page="/Index" class="navbar-brand text-wrap">
+                Network Administrator Online Monitor
+                for Connectivity Status
             </a>
 
             @*<b-navbar-toggle target="navDrawer"></b-navbar-toggle>*@
@@ -20,10 +21,20 @@
                                 <span class="d-md-inline">Add Device</span>
                             </a>
                         </li>
-
+                        @if (User.IsInRole(ApplicationRoles.AdministratorRoleName))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-page="/Administrator/Users/Index">
+                                    <span class="fas fa-fw fa-users mr-1"></span>
+                                    <span class="d-md-inline">Users</span>
+                                </a>
+                            </li>
+                        }
                     </ul>
                 </div>
             }
+
+
 
             @if (User.Identity.IsAuthenticated)
             {

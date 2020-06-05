@@ -156,9 +156,10 @@
 
             async getItems() {
                 const vm = this;
-                await vm.$util.axios.get(`api/admin/items`)
+                await vm.$util.axios.get(`api/item/items`)
                     .then(resp => {
                         vm.items = resp.data;
+                        debugger;
                     })
             },
 

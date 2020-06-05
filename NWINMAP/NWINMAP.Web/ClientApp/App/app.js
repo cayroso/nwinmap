@@ -13,10 +13,11 @@ Vue.use(commonPlugin);
 //  global components
 import GMap from '../Common/Components/gmap.vue';
 import GMapAddItem from '../Common/Components/gmap-add-item.vue';
+import Pagination from '../Common/Components/pagination.vue';
 
 Vue.component('g-map', GMap);
 Vue.component('g-map-add-item', GMapAddItem);
-
+Vue.component('m-pagination', Pagination);
 
 new Vue({
     el: '#app',

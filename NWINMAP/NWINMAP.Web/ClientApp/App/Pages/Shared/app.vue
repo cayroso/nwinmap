@@ -10,7 +10,7 @@
 
         import AppIndex from '../index.vue';
         import AdministratorAddEditItem from '../Administrator/add-edit-item.vue';
-
+        import AdministratorUsersIndex from '../Administrator/users/index.vue';
 
         export default {
             mixins: [appMixin],
@@ -19,7 +19,9 @@
 
                 AppIndex,
 
-                AdministratorAddEditItem
+                AdministratorAddEditItem,
+
+                AdministratorUsersIndex,
             },
             created() {
                 const vm = this;

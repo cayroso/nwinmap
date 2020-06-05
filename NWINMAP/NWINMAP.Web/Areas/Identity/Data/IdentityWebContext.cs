@@ -18,6 +18,7 @@ namespace NWINMAP.Web.Data
         const int DescMaxLength = 2048;
 
         public DbSet<Barangay> Barangays { get; set; }
+        public DbSet<BarangayUserRole> BarangayUserRoles { get; set; }
         public DbSet<Item> Items { get; set; }
 
         public IdentityWebContext(DbContextOptions<IdentityWebContext> options)
@@ -59,16 +60,6 @@ namespace NWINMAP.Web.Data
 
             });
 
-            //builder.Entity<IdentityRole<string>>(b =>
-            //{
-            //    b.ToTable("Role");
-            //    b.HasKey(e => e.Id);
-
-            //    b.Property(e => e.Id).HasColumnName("RoleId").HasMaxLength(KeyMaxLength);
-            //    b.Property(e => e.Name).HasMaxLength(NameMaxLength).IsRequired();
-            //    b.HasIndex(e => e.Name).IsUnique();
-            //});
-
             builder.Entity<IdentityRole>().ToTable("Role");
             builder.Entity<IdentityUserRole<string>>().ToTable("UserRole");
             builder.Entity<IdentityRoleClaim<string>>().ToTable("RoleClaim");
@@ -106,7 +97,8 @@ namespace NWINMAP.Web.Data
             {
                 b.ToTable("BarangayUserRole");
 
-                b.HasKey(e => new { e.BarangayId, e.RoleId });
+                b.HasKey(e => new { e.BarangayId, e.UserId, e.RoleId });
+
                 b.Property(e => e.ConcurrencyStamp).IsConcurrencyToken();
             });
 
@@ -224,6 +216,11 @@ namespace NWINMAP.Web.Data
                 },
                 new IdentityUserRole<string>
                 {
+                    UserId = "systemadministrator1",
+                    RoleId = user.Id,
+                },
+                new IdentityUserRole<string>
+                {
                     UserId = "systemadministrator2",
                     RoleId = admin.Id
                 },
@@ -311,6 +308,20 @@ namespace NWINMAP.Web.Data
                     Longitude = 120.943854
                 }
                 );
+
+            builder.Entity<BarangayUserRole>().HasData(
+                new BarangayUserRole
+                {
+                    BarangayId = "Barangay1",
+                    UserId = "systemadministrator1",
+                    RoleId = user.Id,
+                },
+                new BarangayUserRole
+                {
+                    BarangayId = "Barangay2",
+                    UserId = "systemadministrator1",
+                    RoleId = user.Id,
+                });
 
             builder.Entity<Item>().HasData(
                 new Item

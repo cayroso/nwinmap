@@ -140,7 +140,7 @@
                 if (!vm.id)
                     return;
 
-                await vm.$util.axios.get(`api/admin/items/${vm.id}`)
+                await vm.$util.axios.get(`api/item/items/${vm.id}`)
                     .then(resp => {
 
                         vm.item = resp.data;
@@ -151,8 +151,9 @@
 
             async getBarangays() {
                 const vm = this;
-                await vm.$util.axios.get(`api/admin/barangays`)
+                await vm.$util.axios.get(`api/item/barangays`)
                     .then(resp => {
+                        debugger;
                         vm.barangays = resp.data;
                     })
             },
@@ -187,7 +188,7 @@
 
                         payload.itemId = vm.id;
 
-                        await vm.$util.axios.put(`api/admin/items`, payload)
+                        await vm.$util.axios.put(`api/item/items`, payload)
                             .then(resp => {
                                 alert('updated');
                                 vm.close();
@@ -198,7 +199,7 @@
                 }
                 else {
                     try {
-                        await vm.$util.axios.post(`api/admin/items`, payload)
+                        await vm.$util.axios.post(`api/item/items`, payload)
                             .then(resp => {
                                 alert('created');
                                 vm.close();;

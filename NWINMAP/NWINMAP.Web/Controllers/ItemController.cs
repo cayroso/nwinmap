@@ -12,11 +12,10 @@ using System.Threading.Tasks;
 
 namespace NWINMAP.Web.Controllers
 {
-    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     [Produces("application/json")]
-    public class ItemController: BaseController
+    public class ItemController : BaseController
     {
         readonly IdentityWebContext _dbContext;
         public ItemController(IdentityWebContext dbContext, IOptions<ApiBehaviorOptions> apiBehaviorOptions)
@@ -56,8 +55,11 @@ namespace NWINMAP.Web.Controllers
         [HttpGet("barangays")]
         public async Task<IActionResult> GetBarangaysAsync()
         {
+            var userBarangayIds = await _dbContext.BarangayUserRoles.Where(e => e.UserId == UserId).Select(e => e.BarangayId).ToListAsync();
+
             var data = await _dbContext.Barangays
                 .AsNoTracking()
+                .Where(e => userBarangayIds.Contains(e.BarangayId))
                 .Select(e => new
                 {
                     Value = e.BarangayId,
@@ -68,6 +70,7 @@ namespace NWINMAP.Web.Controllers
             return Ok(data);
         }
 
+        [Authorize]
         [HttpPost("items")]
         public async Task<IActionResult> AddItemAsync([FromBody]AddItemInfo info)
         {
@@ -96,6 +99,7 @@ namespace NWINMAP.Web.Controllers
             return Ok(itemId);
         }
 
+        [Authorize]
         [HttpPut("items")]
         public async Task<IActionResult> EditItemAsync([FromBody]EditItemInfo info)
         {
